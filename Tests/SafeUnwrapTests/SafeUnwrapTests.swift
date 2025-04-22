@@ -23,7 +23,6 @@ struct SafeUnwrapTests {
     @Test func testUnwrappedThrowsDefaultErrorWhenNil() {
         let optString: String? = nil
 
-        // Expect a SafeUnwrapError<String> when nil  [oai_citation_attribution:1‡Donny Wals](https://www.donnywals.com/asserting-state-with-expect-in-swift-testing/?utm_source=chatgpt.com)
         #expect(throws: SafeUnwrapError.self) {
             try optString.unwrapped
         }
@@ -35,7 +34,6 @@ struct SafeUnwrapTests {
         enum MyError: Error, Equatable { case oops }
         let optInt: Int? = nil
 
-        // Expect our custom MyError.oops when nil  [oai_citation_attribution:2‡Donny Wals](https://www.donnywals.com/asserting-state-with-expect-in-swift-testing/?utm_source=chatgpt.com)
         #expect(throws: MyError.oops, "Should throw MyError.oops") {
             try optInt.unwrapped(error: MyError.oops)
         }
